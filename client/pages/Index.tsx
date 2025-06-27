@@ -119,12 +119,12 @@ export default function Index() {
             </div>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
-            <a
-              href="#"
+            <button
+              onClick={() => navigate("/explorar")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Explorar
-            </a>
+            </button>
             <button
               onClick={() => navigate("/registrar-salon")}
               className="text-muted-foreground hover:text-foreground transition-colors"

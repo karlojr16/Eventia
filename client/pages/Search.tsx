@@ -9,7 +9,7 @@ export default function Search() {
   const evento = searchParams.get("evento");
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-body">
       {/* Header */}
       <header className="border-b bg-background sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -18,8 +18,8 @@ export default function Search() {
               <Calendar className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">EventSpace</h1>
-              <p className="text-xs text-muted-foreground">
+              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
+              <p className="text-xs text-muted-foreground font-body">
                 Encuentra tu salón ideal
               </p>
             </div>
@@ -27,26 +27,26 @@ export default function Search() {
           <nav className="hidden md:flex items-center space-x-6">
             <a
               href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Explorar
             </a>
             <a
               href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Anunciar
             </a>
             <a
               href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Ayuda
             </a>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="font-body">
               Iniciar Sesión
             </Button>
-            <Button size="sm">Registrarse</Button>
+            <Button size="sm" className="font-body">Registrarse</Button>
           </nav>
         </div>
       </header>
@@ -58,16 +58,17 @@ export default function Search() {
             variant="ghost"
             size="sm"
             onClick={() => window.history.back()}
+            className="font-body"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver
           </Button>
           <div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <h2 className="text-2xl font-bold text-foreground font-display">
               Resultados de búsqueda
             </h2>
             {(ciudad || evento) && (
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-body">
                 {ciudad && `en ${ciudad}`} {ciudad && evento && "• "}{" "}
                 {evento && `para ${evento}`}
               </p>
@@ -81,14 +82,14 @@ export default function Search() {
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-8 h-8 text-muted-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-xl font-semibold text-foreground mb-2 font-display">
                 Página en construcción
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 font-body">
                 Estamos trabajando en esta página para mostrarte los mejores
                 resultados de búsqueda.
               </p>
-              <Button onClick={() => window.history.back()}>
+              <Button onClick={() => window.history.back()} className="font-body">
                 Volver al inicio
               </Button>
             </div>

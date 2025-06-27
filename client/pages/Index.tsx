@@ -103,7 +103,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50 font-body">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -112,8 +112,8 @@ export default function Index() {
               <Calendar className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">EventSpace</h1>
-              <p className="text-xs text-muted-foreground">
+              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
+              <p className="text-xs text-muted-foreground font-body">
                 Encuentra tu salón ideal
               </p>
             </div>
@@ -121,26 +121,26 @@ export default function Index() {
           <nav className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => navigate("/explorar")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Explorar
             </button>
             <button
               onClick={() => navigate("/registrar-salon")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Registra tu salón
             </button>
             <a
               href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors font-body"
             >
               Ayuda
             </a>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="font-body">
               Iniciar Sesión
             </Button>
-            <Button size="sm">Registrarse</Button>
+            <Button size="sm" className="font-body">Registrarse</Button>
           </nav>
         </div>
       </header>
@@ -148,11 +148,11 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-orange-400 via-red-400 to-pink-500">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-display">
             Encuentra el salón perfecto
             <span className="text-accent block">para tu evento especial</span>
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto font-body">
             Descubre espacios únicos para bodas, cumpleaños, eventos
             corporativos y más. Miles de opciones esperándote en toda México.
           </p>
@@ -163,7 +163,7 @@ export default function Index() {
               <CardContent className="p-0">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground block text-left">
+                    <label className="text-sm font-medium text-foreground block text-left font-body">
                       ¿Dónde?
                     </label>
                     <div className="relative">
@@ -172,23 +172,23 @@ export default function Index() {
                         placeholder="Ciudad o estado"
                         value={searchCity}
                         onChange={(e) => setSearchCity(e.target.value)}
-                        className="pl-10 h-12"
+                        className="pl-10 h-12 font-body"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground block text-left">
+                    <label className="text-sm font-medium text-foreground block text-left font-body">
                       Tipo de evento
                     </label>
                     <Select value={eventType} onValueChange={setEventType}>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger className="h-12 font-body">
                         <SelectValue placeholder="Selecciona un evento" />
                       </SelectTrigger>
                       <SelectContent>
                         {eventTypes.map((type) => {
                           const IconComponent = type.icon;
                           return (
-                            <SelectItem key={type.name} value={type.name}>
+                            <SelectItem key={type.name} value={type.name} className="font-body">
                               <div className="flex items-center space-x-2">
                                 <IconComponent className="w-4 h-4 text-primary" />
                                 <span>{type.name}</span>
@@ -202,7 +202,7 @@ export default function Index() {
                   <div className="flex items-end">
                     <Button
                       onClick={handleSearch}
-                      className="w-full h-12 text-lg font-semibold"
+                      className="w-full h-12 text-lg font-semibold font-body"
                       size="lg"
                     >
                       <Search className="w-5 h-5 mr-2" />
@@ -221,10 +221,10 @@ export default function Index() {
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+            <h3 className="text-3xl font-bold text-foreground mb-4 font-display">
               Salones destacados
             </h3>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-body">
               Los espacios más populares de nuestros huéspedes
             </p>
           </div>
@@ -246,7 +246,7 @@ export default function Index() {
                     <Heart className="w-4 h-4 text-muted-foreground hover:text-red-500" />
                   </button>
                   <Badge
-                    className="absolute bottom-3 left-3"
+                    className="absolute bottom-3 left-3 font-body"
                     variant="secondary"
                   >
                     {venue.type}
@@ -254,34 +254,34 @@ export default function Index() {
                 </div>
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors font-display">
                       {venue.name}
                     </h4>
                     <div className="flex items-center space-x-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-medium font-body">
                         {venue.rating}
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center text-muted-foreground text-sm mb-2">
+                  <div className="flex items-center text-muted-foreground text-sm mb-2 font-body">
                     <MapPin className="w-3 h-3 mr-1" />
                     {venue.location}
                   </div>
-                  <div className="flex items-center text-muted-foreground text-sm mb-3">
+                  <div className="flex items-center text-muted-foreground text-sm mb-3 font-body">
                     <Users className="w-3 h-3 mr-1" />
                     Hasta {venue.capacity} personas
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-lg font-bold text-foreground">
+                      <span className="text-lg font-bold text-foreground font-display">
                         ${venue.price.toLocaleString()}
                       </span>
-                      <span className="text-sm text-muted-foreground ml-1">
+                      <span className="text-sm text-muted-foreground ml-1 font-body">
                         por evento
                       </span>
                     </div>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-muted-foreground font-body">
                       {venue.reviews} reseñas
                     </span>
                   </div>
@@ -296,10 +296,10 @@ export default function Index() {
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+            <h3 className="text-3xl font-bold text-foreground mb-4 font-display">
               ¿Por qué elegir EventSpace?
             </h3>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-body">
               La mejor experiencia para encontrar tu salón ideal
             </p>
           </div>
@@ -309,10 +309,10 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-8 h-8 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold text-foreground mb-2">
+              <h4 className="text-xl font-semibold text-foreground mb-2 font-display">
                 Búsqueda fácil
               </h4>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-body">
                 Encuentra exactamente lo que necesitas con nuestros filtros
                 inteligentes
               </p>
@@ -321,10 +321,10 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold text-foreground mb-2">
+              <h4 className="text-xl font-semibold text-foreground mb-2 font-display">
                 Calidad garantizada
               </h4>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-body">
                 Todos nuestros salones están verificados y cuentan con reseñas
                 reales
               </p>
@@ -333,10 +333,10 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold text-foreground mb-2">
+              <h4 className="text-xl font-semibold text-foreground mb-2 font-display">
                 Soporte 24/7
               </h4>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-body">
                 Nuestro equipo está aquí para ayudarte en cada paso del proceso
               </p>
             </div>
@@ -348,10 +348,10 @@ export default function Index() {
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
+            <h3 className="text-3xl font-bold text-foreground mb-4 font-display">
               Lo que dicen nuestros clientes
             </h3>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-body">
               Miles de eventos exitosos nos respaldan
             </p>
           </div>
@@ -366,7 +366,7 @@ export default function Index() {
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h5 className="font-semibold text-foreground">
+                    <h5 className="font-semibold text-foreground font-display">
                       María González
                     </h5>
                     <div className="flex items-center">
@@ -379,12 +379,12 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-muted-foreground italic font-body">
                   "EventSpace nos ayudó a encontrar el salón perfecto para
                   nuestra boda. El proceso fue súper fácil y el equipo nos
                   acompañó en cada paso."
                 </p>
-                <span className="text-sm text-muted-foreground mt-3 block">
+                <span className="text-sm text-muted-foreground mt-3 block font-body">
                   Boda en Salón Elegancia
                 </span>
               </CardContent>
@@ -399,7 +399,7 @@ export default function Index() {
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h5 className="font-semibold text-foreground">
+                    <h5 className="font-semibold text-foreground font-display">
                       Carlos Méndez
                     </h5>
                     <div className="flex items-center">
@@ -412,12 +412,12 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-muted-foreground italic font-body">
                   "Organizamos nuestro evento corporativo anual aquí. Excelente
                   servicio, instalaciones de primera y precios muy
                   competitivos."
                 </p>
-                <span className="text-sm text-muted-foreground mt-3 block">
+                <span className="text-sm text-muted-foreground mt-3 block font-body">
                   Evento corporativo en Centro Aurora
                 </span>
               </CardContent>
@@ -432,7 +432,7 @@ export default function Index() {
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h5 className="font-semibold text-foreground">
+                    <h5 className="font-semibold text-foreground font-display">
                       Ana Martínez
                     </h5>
                     <div className="flex items-center">
@@ -445,12 +445,12 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-muted-foreground italic font-body">
                   "Mi quinceañera fue un sueño hecho realidad. La plataforma es
                   muy fácil de usar y encontramos exactamente lo que
                   buscábamos."
                 </p>
-                <span className="text-sm text-muted-foreground mt-3 block">
+                <span className="text-sm text-muted-foreground mt-3 block font-body">
                   Quinceañera en Salón Vista Hermosa
                 </span>
               </CardContent>
@@ -468,15 +468,15 @@ export default function Index() {
                 <div className="w-8 h-8 bg-background rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-foreground" />
                 </div>
-                <span className="text-lg font-bold">EventSpace</span>
+                <span className="text-lg font-bold font-display">EventSpace</span>
               </div>
-              <p className="text-muted">
+              <p className="text-muted font-body">
                 El lugar perfecto para cada evento especial
               </p>
             </div>
             <div>
-              <h5 className="font-semibold mb-3">Explorar</h5>
-              <ul className="space-y-2 text-sm text-muted">
+              <h5 className="font-semibold mb-3 font-display">Explorar</h5>
+              <ul className="space-y-2 text-sm text-muted font-body">
                 <li>
                   <a
                     href="#"
@@ -512,8 +512,8 @@ export default function Index() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold mb-3">Compañía</h5>
-              <ul className="space-y-2 text-sm text-muted">
+              <h5 className="font-semibold mb-3 font-display">Compañía</h5>
+              <ul className="space-y-2 text-sm text-muted font-body">
                 <li>
                   <a
                     href="#"
@@ -549,8 +549,8 @@ export default function Index() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold mb-3">Soporte</h5>
-              <ul className="space-y-2 text-sm text-muted">
+              <h5 className="font-semibold mb-3 font-display">Soporte</h5>
+              <ul className="space-y-2 text-sm text-muted font-body">
                 <li>
                   <a
                     href="#"
@@ -586,7 +586,7 @@ export default function Index() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-muted/20 mt-8 pt-8 text-center text-sm text-muted">
+          <div className="border-t border-muted/20 mt-8 pt-8 text-center text-sm text-muted font-body">
             © 2024 EventSpace. Todos los derechos reservados.
           </div>
         </div>

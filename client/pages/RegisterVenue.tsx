@@ -156,14 +156,14 @@ export default function RegisterVenue() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50 font-body">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Button
             variant="ghost"
             onClick={() => navigate("/")}
-            className="flex items-center"
+            className="flex items-center font-body"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver al inicio
@@ -173,8 +173,8 @@ export default function RegisterVenue() {
               <Calendar className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">EventSpace</h1>
-              <p className="text-xs text-muted-foreground">Registra tu salón</p>
+              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
+              <p className="text-xs text-muted-foreground font-body">Registra tu salón</p>
             </div>
           </div>
           <div className="w-24"></div>
@@ -186,10 +186,10 @@ export default function RegisterVenue() {
         <div className="mb-8">
           <div className="flex items-center justify-center mb-4">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-foreground mb-2">
+              <h2 className="text-3xl font-bold text-foreground mb-2 font-display">
                 Registra tu salón de eventos
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground font-body">
                 Únete a la plataforma líder en México
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function RegisterVenue() {
               {[1, 2, 3, 4].map((s) => (
                 <div
                   key={s}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium font-body ${
                     s <= step
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground"
@@ -209,344 +209,274 @@ export default function RegisterVenue() {
                 </div>
               ))}
             </div>
-            <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Información</span>
-              <span>Detalles</span>
-              <span>Servicios</span>
-              <span>Contacto</span>
+            <div className="w-full bg-muted rounded-full h-2">
+              <div
+                className="bg-primary h-2 rounded-full transition-all duration-300"
+                style={{ width: `${(step / totalSteps) * 100}%` }}
+              ></div>
             </div>
           </div>
         </div>
 
-        {/* Form Content */}
+        {/* Form Steps */}
         <div className="max-w-2xl mx-auto">
-          <Card>
-            <CardHeader>
-              <CardTitle>
-                {step === 1 && "Información básica"}
-                {step === 2 && "Detalles del evento"}
-                {step === 3 && "Servicios e imágenes"}
-                {step === 4 && "Información de contacto"}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Step 1: Basic Information */}
-              {step === 1 && (
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nombre del salón *</Label>
+          {step === 1 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-display">Información básica</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="name" className="font-body">Nombre del salón</Label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    placeholder="Ej: Salón Elegancia"
+                    className="font-body"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="description" className="font-body">Descripción</Label>
+                  <Textarea
+                    id="description"
+                    value={formData.description}
+                    onChange={(e) => handleInputChange("description", e.target.value)}
+                    placeholder="Describe tu salón, sus características especiales..."
+                    className="font-body"
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="state" className="font-body">Estado</Label>
+                    <Select value={formData.state} onValueChange={(value) => handleInputChange("state", value)}>
+                      <SelectTrigger className="font-body">
+                        <SelectValue placeholder="Selecciona un estado" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {statesList.map((state) => (
+                          <SelectItem key={state} value={state} className="font-body">
+                            {state}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="address" className="font-body">Dirección</Label>
                     <Input
-                      id="name"
-                      placeholder="Ej: Salón Elegancia"
-                      value={formData.name}
-                      onChange={(e) =>
-                        handleInputChange("name", e.target.value)
-                      }
+                      id="address"
+                      value={formData.address}
+                      onChange={(e) => handleInputChange("address", e.target.value)}
+                      placeholder="Dirección completa"
+                      className="font-body"
                     />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="description">Descripción *</Label>
-                    <Textarea
-                      id="description"
-                      placeholder="Describe tu salón, sus características principales y lo que lo hace especial..."
-                      value={formData.description}
-                      onChange={(e) =>
-                        handleInputChange("description", e.target.value)
-                      }
-                      rows={4}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="state">Estado/Ciudad *</Label>
-                      <Select
-                        value={formData.state}
-                        onValueChange={(value) =>
-                          handleInputChange("state", value)
-                        }
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona ubicación" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {statesList.map((state) => (
-                            <SelectItem key={state} value={state}>
-                              {state}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Dirección *</Label>
-                      <Input
-                        id="address"
-                        placeholder="Dirección completa"
-                        value={formData.address}
-                        onChange={(e) =>
-                          handleInputChange("address", e.target.value)
-                        }
-                      />
-                    </div>
                   </div>
                 </div>
-              )}
+              </CardContent>
+            </Card>
+          )}
 
-              {/* Step 2: Event Details */}
-              {step === 2 && (
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="capacity">Capacidad máxima *</Label>
-                      <div className="relative">
-                        <Users className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="capacity"
-                          type="number"
-                          placeholder="200"
-                          value={formData.capacity}
-                          onChange={(e) =>
-                            handleInputChange("capacity", e.target.value)
-                          }
-                          className="pl-10"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="price">Precio por evento *</Label>
-                      <div className="relative">
-                        <span className="absolute left-3 top-3 text-muted-foreground">
-                          $
-                        </span>
-                        <Input
-                          id="price"
-                          type="number"
-                          placeholder="15000"
-                          value={formData.price}
-                          onChange={(e) =>
-                            handleInputChange("price", e.target.value)
-                          }
-                          className="pl-8"
-                        />
-                      </div>
-                    </div>
+          {step === 2 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-display">Capacidad y precios</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="capacity" className="font-body">Capacidad máxima</Label>
+                    <Input
+                      id="capacity"
+                      type="number"
+                      value={formData.capacity}
+                      onChange={(e) => handleInputChange("capacity", e.target.value)}
+                      placeholder="Ej: 200"
+                      className="font-body"
+                    />
                   </div>
+                  <div>
+                    <Label htmlFor="price" className="font-body">Precio por evento</Label>
+                    <Input
+                      id="price"
+                      type="number"
+                      value={formData.price}
+                      onChange={(e) => handleInputChange("price", e.target.value)}
+                      placeholder="Ej: 15000"
+                      className="font-body"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Label className="font-body">Tipos de eventos que organizas</Label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
+                    {eventTypesList.map((type) => (
+                      <div key={type} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={type}
+                          checked={formData.eventTypes.includes(type)}
+                          onCheckedChange={(checked) =>
+                            handleArrayChange("eventTypes", type, checked as boolean)
+                          }
+                        />
+                        <Label htmlFor={type} className="text-sm font-body">
+                          {type}
+                        </Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
-                  <div className="space-y-3">
-                    <Label>Tipos de eventos que acepta *</Label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {eventTypesList.map((eventType) => (
-                        <div
-                          key={eventType}
-                          className="flex items-center space-x-2"
-                        >
+          {step === 3 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-display">Servicios e imágenes</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label className="font-body">Servicios incluidos</Label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+                    {amenitiesList.map((amenity) => {
+                      const IconComponent = amenity.icon;
+                      return (
+                        <div key={amenity.id} className="flex items-center space-x-2">
                           <Checkbox
-                            id={`event-${eventType}`}
-                            checked={formData.eventTypes.includes(eventType)}
+                            id={amenity.id}
+                            checked={formData.amenities.includes(amenity.name)}
                             onCheckedChange={(checked) =>
-                              handleArrayChange(
-                                "eventTypes",
-                                eventType,
-                                checked as boolean,
-                              )
+                              handleArrayChange("amenities", amenity.name, checked as boolean)
                             }
                           />
-                          <Label
-                            htmlFor={`event-${eventType}`}
-                            className="text-sm font-normal"
-                          >
-                            {eventType}
-                          </Label>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Step 3: Services and Images */}
-              {step === 3 && (
-                <div className="space-y-6">
-                  <div className="space-y-3">
-                    <Label>Servicios incluidos *</Label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {amenitiesList.map((amenity) => {
-                        const IconComponent = amenity.icon;
-                        return (
-                          <div
-                            key={amenity.id}
-                            className="flex items-center space-x-2"
-                          >
-                            <Checkbox
-                              id={`amenity-${amenity.id}`}
-                              checked={formData.amenities.includes(amenity.id)}
-                              onCheckedChange={(checked) =>
-                                handleArrayChange(
-                                  "amenities",
-                                  amenity.id,
-                                  checked as boolean,
-                                )
-                              }
-                            />
+                          <div className="flex items-center space-x-2">
                             <IconComponent className="w-4 h-4 text-primary" />
-                            <Label
-                              htmlFor={`amenity-${amenity.id}`}
-                              className="text-sm font-normal"
-                            >
+                            <Label htmlFor={amenity.id} className="text-sm font-body">
                               {amenity.name}
                             </Label>
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-3">
-                    <Label>Fotos del salón * (mínimo 1)</Label>
-                    <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center">
-                      <Camera className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                      <p className="text-muted-foreground mb-4">
-                        Sube fotos de alta calidad de tu salón
-                      </p>
-                      <Input
-                        type="file"
-                        multiple
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="hidden"
-                        id="image-upload"
-                      />
-                      <Label htmlFor="image-upload">
-                        <Button variant="outline" className="cursor-pointer">
-                          <Upload className="w-4 h-4 mr-2" />
-                          Seleccionar fotos
-                        </Button>
-                      </Label>
-                    </div>
-
-                    {formData.images.length > 0 && (
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {formData.images.map((image, index) => (
-                          <div key={index} className="relative">
-                            <img
-                              src={URL.createObjectURL(image)}
-                              alt={`Preview ${index + 1}`}
-                              className="w-full h-24 object-cover rounded-lg"
-                            />
-                            <Button
-                              size="sm"
-                              variant="destructive"
-                              className="absolute top-1 right-1 w-6 h-6 p-0"
-                              onClick={() => removeImage(index)}
-                            >
-                              ×
-                            </Button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              )}
+                <div>
+                  <Label className="font-body">Imágenes del salón</Label>
+                  <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center mt-2">
+                    <Upload className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
+                    <p className="text-sm text-muted-foreground mb-2 font-body">
+                      Arrastra las imágenes aquí o haz clic para seleccionar
+                    </p>
+                    <input
+                      type="file"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                      id="image-upload"
+                    />
+                    <Button variant="outline" size="sm" className="font-body">
+                      <label htmlFor="image-upload" className="cursor-pointer">
+                        Seleccionar imágenes
+                      </label>
+                    </Button>
+                  </div>
+                  {formData.images.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4">
+                      {formData.images.map((image, index) => (
+                        <div key={index} className="relative">
+                          <img
+                            src={URL.createObjectURL(image)}
+                            alt={`Preview ${index + 1}`}
+                            className="w-full h-24 object-cover rounded-lg"
+                          />
+                          <button
+                            onClick={() => removeImage(index)}
+                            className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
-              {/* Step 4: Contact Information */}
-              {step === 4 && (
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="contactName">Nombre completo *</Label>
+          {step === 4 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-display">Información de contacto</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="contactName" className="font-body">Nombre del contacto</Label>
+                  <Input
+                    id="contactName"
+                    value={formData.contactName}
+                    onChange={(e) => handleInputChange("contactName", e.target.value)}
+                    placeholder="Tu nombre completo"
+                    className="font-body"
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="contactPhone" className="font-body">Teléfono</Label>
                     <Input
-                      id="contactName"
-                      placeholder="Tu nombre completo"
-                      value={formData.contactName}
-                      onChange={(e) =>
-                        handleInputChange("contactName", e.target.value)
-                      }
+                      id="contactPhone"
+                      value={formData.contactPhone}
+                      onChange={(e) => handleInputChange("contactPhone", e.target.value)}
+                      placeholder="+52 55 1234 5678"
+                      className="font-body"
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="contactPhone">Teléfono *</Label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="contactPhone"
-                        placeholder="55 1234 5678"
-                        value={formData.contactPhone}
-                        onChange={(e) =>
-                          handleInputChange("contactPhone", e.target.value)
-                        }
-                        className="pl-10"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="contactEmail">Correo electrónico *</Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="contactEmail"
-                        type="email"
-                        placeholder="tu@email.com"
-                        value={formData.contactEmail}
-                        onChange={(e) =>
-                          handleInputChange("contactEmail", e.target.value)
-                        }
-                        className="pl-10"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="bg-secondary/20 p-4 rounded-lg">
-                    <h4 className="font-semibold text-foreground mb-2">
-                      ¿Qué sigue después del registro?
-                    </h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>
-                        • Nuestro equipo revisará tu solicitud en 1-2 días
-                      </li>
-                      <li>• Te contactaremos para verificar la información</li>
-                      <li>
-                        • Una vez aprobado, tu salón aparecerá en la plataforma
-                      </li>
-                      <li>• Comenzarás a recibir reservas de inmediato</li>
-                    </ul>
+                  <div>
+                    <Label htmlFor="contactEmail" className="font-body">Email</Label>
+                    <Input
+                      id="contactEmail"
+                      type="email"
+                      value={formData.contactEmail}
+                      onChange={(e) => handleInputChange("contactEmail", e.target.value)}
+                      placeholder="tu@email.com"
+                      className="font-body"
+                    />
                   </div>
                 </div>
-              )}
+              </CardContent>
+            </Card>
+          )}
 
-              {/* Navigation Buttons */}
-              <div className="flex justify-between pt-6">
-                <Button
-                  variant="outline"
-                  onClick={prevStep}
-                  disabled={step === 1}
-                >
-                  Anterior
-                </Button>
-
-                {step < totalSteps ? (
-                  <Button onClick={nextStep} disabled={!isStepValid()}>
-                    Siguiente
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={!isStepValid()}
-                    className="bg-primary hover:bg-primary/90"
-                  >
-                    Registrar salón
-                  </Button>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          {/* Navigation Buttons */}
+          <div className="flex justify-between mt-8">
+            <Button
+              variant="outline"
+              onClick={prevStep}
+              disabled={step === 1}
+              className="font-body"
+            >
+              Anterior
+            </Button>
+            {step < totalSteps ? (
+              <Button
+                onClick={nextStep}
+                disabled={!isStepValid()}
+                className="font-body"
+              >
+                Siguiente
+              </Button>
+            ) : (
+              <Button
+                onClick={handleSubmit}
+                disabled={!isStepValid()}
+                className="font-body"
+              >
+                Enviar solicitud
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>

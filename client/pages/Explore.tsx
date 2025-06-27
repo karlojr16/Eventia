@@ -157,14 +157,14 @@ export default function Explore() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50 font-body">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Button
             variant="ghost"
             onClick={() => navigate("/")}
-            className="flex items-center"
+            className="flex items-center font-body"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Inicio
@@ -174,8 +174,8 @@ export default function Explore() {
               <Calendar className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">EventSpace</h1>
-              <p className="text-xs text-muted-foreground">Explora salones</p>
+              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
+              <p className="text-xs text-muted-foreground font-body">Explora salones</p>
             </div>
           </div>
           <div className="w-24"></div>
@@ -185,10 +185,10 @@ export default function Explore() {
       <div className="container mx-auto px-4 py-8">
         {/* Page Title */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-display">
             Explora todos los salones
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground font-body">
             {filteredVenues.length} salones disponibles
           </p>
         </div>
@@ -198,137 +198,107 @@ export default function Explore() {
           <div className="relative">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Buscar por nombre o ciudad..."
+              placeholder="Buscar por nombre o ubicación..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 h-12"
+              className="pl-10 font-body"
             />
           </div>
         </div>
 
         {/* Event Type Filters */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-foreground mb-4 text-center">
+          <h3 className="text-lg font-semibold text-foreground mb-4 font-display">
             Filtrar por tipo de evento
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap gap-2">
             {eventTypeFilters.map((filter) => {
               const IconComponent = filter.icon;
-              const isSelected = selectedEventType === filter.value;
               return (
-                <Button
+                <button
                   key={filter.value}
-                  variant={isSelected ? "default" : "outline"}
-                  size="sm"
                   onClick={() => setSelectedEventType(filter.value)}
-                  className={`flex items-center space-x-2 ${
-                    isSelected
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-primary/10"
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full border transition-colors font-body ${
+                    selectedEventType === filter.value
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-background text-foreground border-border hover:bg-muted"
                   }`}
                 >
                   {IconComponent && <IconComponent className="w-4 h-4" />}
-                  <span className="text-sm">{filter.name}</span>
-                </Button>
+                  <span>{filter.name}</span>
+                </button>
               );
             })}
           </div>
         </div>
 
-        {/* Results Count */}
-        <div className="mb-6">
-          <p className="text-center text-muted-foreground">
-            {selectedEventType === "all"
-              ? `Mostrando todos los ${filteredVenues.length} salones`
-              : `${filteredVenues.length} salones para ${selectedEventType}`}
-            {searchTerm && ` que coinciden con "${searchTerm}"`}
-          </p>
-        </div>
-
         {/* Venues Grid */}
-        {filteredVenues.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredVenues.map((venue) => (
-              <Card
-                key={venue.id}
-                className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                onClick={() => navigate(`/salon/${venue.id}`)}
-              >
-                <div className="relative">
-                  <img
-                    src={venue.image}
-                    alt={venue.name}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <button
-                    className="absolute top-3 right-3 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Heart className="w-4 h-4 text-muted-foreground hover:text-red-500" />
-                  </button>
-                  <Badge
-                    className="absolute bottom-3 left-3"
-                    variant="secondary"
-                  >
-                    {venue.type}
-                  </Badge>
-                </div>
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {venue.name}
-                    </h4>
-                    <div className="flex items-center space-x-1">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">
-                        {venue.rating}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center text-muted-foreground text-sm mb-2">
-                    <MapPin className="w-3 h-3 mr-1" />
-                    {venue.location}
-                  </div>
-                  <div className="flex items-center text-muted-foreground text-sm mb-3">
-                    <Users className="w-3 h-3 mr-1" />
-                    Hasta {venue.capacity} personas
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-lg font-bold text-foreground">
-                        ${venue.price.toLocaleString()}
-                      </span>
-                      <span className="text-sm text-muted-foreground ml-1">
-                        por evento
-                      </span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">
-                      {venue.reviews} reseñas
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredVenues.map((venue) => (
+            <Card
+              key={venue.id}
+              className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              onClick={() => navigate(`/salon/${venue.id}`)}
+            >
+              <div className="relative">
+                <img
+                  src={venue.image}
+                  alt={venue.name}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <button className="absolute top-3 right-3 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors">
+                  <Heart className="w-4 h-4 text-muted-foreground hover:text-red-500" />
+                </button>
+                <Badge
+                  className="absolute bottom-3 left-3 font-body"
+                  variant="secondary"
+                >
+                  {venue.type}
+                </Badge>
+              </div>
+              <CardContent className="p-4">
+                <div className="flex items-start justify-between mb-2">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors font-display">
+                    {venue.name}
+                  </h4>
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium font-body">
+                      {venue.rating}
                     </span>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
+                </div>
+                <div className="flex items-center text-muted-foreground text-sm mb-2 font-body">
+                  <MapPin className="w-3 h-3 mr-1" />
+                  {venue.location}
+                </div>
+                <div className="flex items-center text-muted-foreground text-sm mb-3 font-body">
+                  <Users className="w-3 h-3 mr-1" />
+                  Hasta {venue.capacity} personas
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-lg font-bold text-foreground font-display">
+                      ${venue.price.toLocaleString()}
+                    </span>
+                    <span className="text-sm text-muted-foreground ml-1 font-body">
+                      por evento
+                    </span>
+                  </div>
+                  <span className="text-xs text-muted-foreground font-body">
+                    {venue.reviews} reseñas
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {filteredVenues.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="w-8 h-8 text-muted-foreground" />
-            </div>
-            <h3 className="text-xl font-semibold text-foreground mb-2">
-              No se encontraron salones
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Intenta ajustar tus filtros o términos de búsqueda
+            <p className="text-lg text-muted-foreground font-body">
+              No se encontraron salones que coincidan con tu búsqueda.
             </p>
-            <Button
-              onClick={() => {
-                setSearchTerm("");
-                setSelectedEventType("all");
-              }}
-            >
-              Limpiar filtros
-            </Button>
           </div>
         )}
       </div>

@@ -32,7 +32,7 @@ const featuredVenues = [
     name: "Salón Elegancia",
     location: "Ciudad de México",
     image:
-      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "./SALON1.jpeg",
     rating: 4.9,
     reviews: 127,
     price: 15000,
@@ -68,7 +68,7 @@ const featuredVenues = [
     name: "Salón Vista Hermosa",
     location: "Puebla",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "./SALON3.jpeg",
     rating: 4.9,
     reviews: 203,
     price: 10000,
@@ -108,7 +108,7 @@ export default function Index() {
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3 h-full">
-          <img src="/LOGO.png" alt="Eventia logo" className="h-full w-auto" />
+          <img src="/LOGONEGRO.png" alt="Eventia logo" className="h-full w-auto" />
           </div>
           <nav className="hidden md:flex items-center space-x-6">
             <button
@@ -138,19 +138,27 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500">
-        <div className="container mx-auto text-center">
+      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 overflow-hidden">
+        {/* Galería de imágenes decorativa a la derecha */}
+        <div className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 w-1/3 flex items-center justify-end z-0 pointer-events-none">
+          <div className="grid grid-rows-3 gap-6 w-full pr-8">
+            <img src="./SALON1.jpeg" alt="img1" className="rounded-3xl object-cover w-full h-40 shadow-lg" />
+            <img src="./SALON2.jpeg" alt="img2" className="rounded-3xl object-cover w-full h-40 shadow-lg" />
+            <img src="./SALON3.jpeg" alt="img3" className="rounded-3xl object-cover w-full h-40 shadow-lg" />
+          </div>
+        </div>
+        <div className="container mx-auto text-left flex flex-col items-start relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-display">
             Encuentra el salón perfecto
             <span className="text-accent block">para tu evento especial</span>
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto font-body">
+          <p className="text-xl text-white/90 mb-12 max-w-2xl font-body">
             Descubre espacios únicos para bodas, cumpleaños, eventos
             corporativos y más. Miles de opciones esperándote en toda México.
           </p>
 
           {/* Search Form */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl w-full">
             <Card className="p-6 shadow-xl border-2">
               <CardContent className="p-0">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

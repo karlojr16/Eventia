@@ -170,12 +170,11 @@ export default function Explore() {
             Inicio
           </Button>
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-primary-foreground" />
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src="/LOGONEGRO.png" alt="Eventia logo" className="h-full w-auto" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground font-display">Eventia</h1>
-              <p className="text-xs text-muted-foreground font-body">Explora salones</p>
+
             </div>
           </div>
           <div className="w-24"></div>

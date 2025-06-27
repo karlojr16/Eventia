@@ -106,17 +106,9 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50 font-body">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
-              <p className="text-xs text-muted-foreground font-body">
-                Encuentra tu salón ideal
-              </p>
-            </div>
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center space-x-3 h-full">
+          <img src="/LOGO.png" alt="Eventia logo" className="h-full w-auto" />
           </div>
           <nav className="hidden md:flex items-center space-x-6">
             <button
@@ -297,7 +289,7 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-foreground mb-4 font-display">
-              ¿Por qué elegir EventSpace?
+              ¿Por qué elegir Eventia?
             </h3>
             <p className="text-lg text-muted-foreground font-body">
               La mejor experiencia para encontrar tu salón ideal
@@ -380,7 +372,7 @@ export default function Index() {
                   </div>
                 </div>
                 <p className="text-muted-foreground italic font-body">
-                  "EventSpace nos ayudó a encontrar el salón perfecto para
+                  "Eventia nos ayudó a encontrar el salón perfecto para
                   nuestra boda. El proceso fue súper fácil y el equipo nos
                   acompañó en cada paso."
                 </p>
@@ -468,7 +460,7 @@ export default function Index() {
                 <div className="w-8 h-8 bg-background rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-foreground" />
                 </div>
-                <span className="text-lg font-bold font-display">EventSpace</span>
+                <span className="text-lg font-bold font-display">Eventia</span>
               </div>
               <p className="text-muted font-body">
                 El lugar perfecto para cada evento especial
@@ -587,7 +579,7 @@ export default function Index() {
             </div>
           </div>
           <div className="border-t border-muted/20 mt-8 pt-8 text-center text-sm text-muted font-body">
-            © 2024 EventSpace. Todos los derechos reservados.
+            © 2024 Eventia. Todos los derechos reservados.
           </div>
         </div>
       </footer>

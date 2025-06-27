@@ -267,17 +267,6 @@ export default function VenueDetails() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver
           </Button>
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
-              <p className="text-xs text-muted-foreground font-body">
-                Detalles del salón
-              </p>
-            </div>
-          </div>
           <div className="flex items-center space-x-2">
             <Button variant="ghost" size="sm" className="font-body">
               <Share className="w-4 h-4" />

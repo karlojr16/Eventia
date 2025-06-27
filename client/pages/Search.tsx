@@ -18,7 +18,7 @@ export default function Search() {
               <Calendar className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground font-display">EventSpace</h1>
+              <h1 className="text-xl font-bold text-foreground font-display">Eventia</h1>
               <p className="text-xs text-muted-foreground font-body">
                 Encuentra tu salón ideal
               </p>

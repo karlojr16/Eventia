@@ -11,7 +11,20 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, MapPin, Users, Star, Calendar, Heart } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Users,
+  Star,
+  Calendar,
+  Heart,
+  Gift,
+  Crown,
+  Building2,
+  GraduationCap,
+  PartyPopper,
+  Coffee,
+} from "lucide-react";
 
 const featuredVenues = [
   {
@@ -65,14 +78,14 @@ const featuredVenues = [
 ];
 
 const eventTypes = [
-  "Bodas",
-  "Cumpleaños",
-  "Quinceañeras",
-  "Corporativo",
-  "Graduaciones",
-  "Aniversarios",
-  "Baby Shower",
-  "Conferencias",
+  { name: "Bodas", icon: Heart },
+  { name: "Cumpleaños", icon: Gift },
+  { name: "Quinceañeras", icon: Crown },
+  { name: "Corporativo", icon: Building2 },
+  { name: "Graduaciones", icon: GraduationCap },
+  { name: "Aniversarios", icon: PartyPopper },
+  { name: "Baby Shower", icon: Coffee },
+  { name: "Conferencias", icon: Users },
 ];
 
 export default function Index() {
@@ -90,7 +103,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/10">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -133,12 +146,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section
-        className="relative py-20 px-4 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(87, 13, 248, 0.3)), url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
-        }}
-      >
+      <section className="relative py-20 px-4 bg-gradient-to-br from-orange-400 via-red-400 to-pink-500">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Encuentra el salón perfecto
@@ -177,11 +185,17 @@ export default function Index() {
                         <SelectValue placeholder="Selecciona un evento" />
                       </SelectTrigger>
                       <SelectContent>
-                        {eventTypes.map((type) => (
-                          <SelectItem key={type} value={type}>
-                            {type}
-                          </SelectItem>
-                        ))}
+                        {eventTypes.map((type) => {
+                          const IconComponent = type.icon;
+                          return (
+                            <SelectItem key={type.name} value={type.name}>
+                              <div className="flex items-center space-x-2">
+                                <IconComponent className="w-4 h-4 text-primary" />
+                                <span>{type.name}</span>
+                              </div>
+                            </SelectItem>
+                          );
+                        })}
                       </SelectContent>
                     </Select>
                   </div>
@@ -198,6 +212,41 @@ export default function Index() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Event Types */}
+      <section className="py-16 px-4 bg-secondary/20">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
+              Tipos de eventos
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              Encuentra el salón perfecto para cualquier ocasión
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {eventTypes.map((type) => {
+              const IconComponent = type.icon;
+              return (
+                <Card
+                  key={type.name}
+                  className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-primary/5"
+                >
+                  <CardContent className="p-6 text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {type.name}
+                    </h4>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

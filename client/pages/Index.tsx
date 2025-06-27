@@ -138,7 +138,15 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 overflow-hidden">
+      <section
+        className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 overflow-hidden"
+        style={{
+          backgroundImage: "url('/fondo.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         {/* Galería de imágenes decorativa a la derecha */}
         <div className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 w-1/3 flex items-center justify-end z-0 pointer-events-none">
           <div className="grid grid-rows-3 gap-6 w-full pr-8">
@@ -157,7 +165,7 @@ export default function Index() {
             corporativos y más. Miles de opciones esperándote en toda México.
           </p>
 
-          {/* Search Form */}
+          {/* Search Form alineado a la izquierda */}
           <div className="max-w-4xl w-full">
             <Card className="p-6 shadow-xl border-2">
               <CardContent className="p-0">

@@ -141,7 +141,7 @@ export default function Index() {
       <section
         className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 overflow-hidden"
         style={{
-          backgroundImage: "url('/fondo.jpg')",
+          backgroundImage: "url('/eventfondo.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"

@@ -216,40 +216,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Event Types */}
-      <section className="py-16 px-4 bg-secondary/20">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
-              Tipos de eventos
-            </h3>
-            <p className="text-lg text-muted-foreground">
-              Encuentra el salón perfecto para cualquier ocasión
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {eventTypes.map((type) => {
-              const IconComponent = type.icon;
-              return (
-                <Card
-                  key={type.name}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-primary/5"
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                      <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
-                    <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {type.name}
-                    </h4>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* Featured Venues */}
       <section className="py-16 px-4">

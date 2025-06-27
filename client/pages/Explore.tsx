@@ -35,9 +35,9 @@ const allVenues = [
   {
     id: 1,
     name: "Salón Elegancia",
-    location: "Ciudad de México",
+    location: "Chihuahua, Chih.",
     image:
-      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "./SALON1.jpeg",
     rating: 4.9,
     reviews: 127,
     price: 15000,
@@ -47,7 +47,7 @@ const allVenues = [
   {
     id: 2,
     name: "Centro de Eventos Aurora",
-    location: "Guadalajara",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.8,
@@ -59,7 +59,7 @@ const allVenues = [
   {
     id: 3,
     name: "Terraza Jardín Real",
-    location: "Monterrey",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.7,
@@ -71,9 +71,9 @@ const allVenues = [
   {
     id: 4,
     name: "Salón Vista Hermosa",
-    location: "Puebla",
+    location: "Chihuahua, Chih.",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "./SALON3.jpeg",
     rating: 4.9,
     reviews: 203,
     price: 10000,
@@ -83,7 +83,7 @@ const allVenues = [
   {
     id: 5,
     name: "Salón Premium Palace",
-    location: "Ciudad de México",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.8,
@@ -95,7 +95,7 @@ const allVenues = [
   {
     id: 6,
     name: "Centro de Conferencias Moderno",
-    location: "Guadalajara",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.6,
@@ -107,7 +107,7 @@ const allVenues = [
   {
     id: 7,
     name: "Quinta Los Rosales",
-    location: "Monterrey",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.9,
@@ -119,7 +119,7 @@ const allVenues = [
   {
     id: 8,
     name: "Salón de Graduaciones UNI",
-    location: "Puebla",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.5,
@@ -131,7 +131,7 @@ const allVenues = [
   {
     id: 9,
     name: "Terraza Celebración",
-    location: "Cancún",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.7,
@@ -152,7 +152,7 @@ export default function Explore() {
       venue.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       venue.location.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesType =
-      selectedEventType === "all" || venue.type === selectedEventType;
+      selectedEventType === "all" || venue.type.toLowerCase() === selectedEventType.toLowerCase();
     return matchesSearch && matchesType;
   });
 

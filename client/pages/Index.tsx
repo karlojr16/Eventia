@@ -30,7 +30,7 @@ const featuredVenues = [
   {
     id: 1,
     name: "Salón Elegancia",
-    location: "Ciudad de México",
+    location: "Chihuahua, Chih.",
     image:
       "./SALON1.jpeg",
     rating: 4.9,
@@ -42,7 +42,7 @@ const featuredVenues = [
   {
     id: 2,
     name: "Centro de Eventos Aurora",
-    location: "Guadalajara",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.8,
@@ -54,7 +54,7 @@ const featuredVenues = [
   {
     id: 3,
     name: "Terraza Jardín Real",
-    location: "Monterrey",
+    location: "Chihuahua, Chih.",
     image:
       "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.7,
@@ -66,7 +66,7 @@ const featuredVenues = [
   {
     id: 4,
     name: "Salón Vista Hermosa",
-    location: "Puebla",
+    location: "Chihuahua, Chih.",
     image:
       "./SALON3.jpeg",
     rating: 4.9,

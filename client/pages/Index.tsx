@@ -18,7 +18,8 @@ const featuredVenues = [
     id: 1,
     name: "Salón Elegancia",
     location: "Ciudad de México",
-    image: "/placeholder.svg",
+    image:
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.9,
     reviews: 127,
     price: 15000,
@@ -29,7 +30,8 @@ const featuredVenues = [
     id: 2,
     name: "Centro de Eventos Aurora",
     location: "Guadalajara",
-    image: "/placeholder.svg",
+    image:
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.8,
     reviews: 89,
     price: 12000,
@@ -40,7 +42,8 @@ const featuredVenues = [
     id: 3,
     name: "Terraza Jardín Real",
     location: "Monterrey",
-    image: "/placeholder.svg",
+    image:
+      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.7,
     reviews: 156,
     price: 18000,
@@ -51,7 +54,8 @@ const featuredVenues = [
     id: 4,
     name: "Salón Vista Hermosa",
     location: "Puebla",
-    image: "/placeholder.svg",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     rating: 4.9,
     reviews: 203,
     price: 10000,
@@ -215,6 +219,7 @@ export default function Index() {
               <Card
                 key={venue.id}
                 className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                onClick={() => navigate(`/salon/${venue.id}`)}
               >
                 <div className="relative">
                   <img
@@ -320,6 +325,121 @@ export default function Index() {
                 Nuestro equipo está aquí para ayudarte en cada paso del proceso
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* User Testimonials */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
+              Lo que dicen nuestros clientes
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              Miles de eventos exitosos nos respaldan
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                    alt="María González"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h5 className="font-semibold text-foreground">
+                      María González
+                    </h5>
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground italic">
+                  "EventSpace nos ayudó a encontrar el salón perfecto para
+                  nuestra boda. El proceso fue súper fácil y el equipo nos
+                  acompañó en cada paso."
+                </p>
+                <span className="text-sm text-muted-foreground mt-3 block">
+                  Boda en Salón Elegancia
+                </span>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                    alt="Carlos Méndez"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h5 className="font-semibold text-foreground">
+                      Carlos Méndez
+                    </h5>
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground italic">
+                  "Organizamos nuestro evento corporativo anual aquí. Excelente
+                  servicio, instalaciones de primera y precios muy
+                  competitivos."
+                </p>
+                <span className="text-sm text-muted-foreground mt-3 block">
+                  Evento corporativo en Centro Aurora
+                </span>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                    alt="Ana Martínez"
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h5 className="font-semibold text-foreground">
+                      Ana Martínez
+                    </h5>
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground italic">
+                  "Mi quinceañera fue un sueño hecho realidad. La plataforma es
+                  muy fácil de usar y encontramos exactamente lo que
+                  buscábamos."
+                </p>
+                <span className="text-sm text-muted-foreground mt-3 block">
+                  Quinceañera en Salón Vista Hermosa
+                </span>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

@@ -52,7 +52,7 @@ const eventTypesList = [
 ];
 
 const statesList = [
-  "Ciudad de México",
+  "Chihuahua",
   "Guadalajara",
   "Monterrey",
   "Puebla",
@@ -80,6 +80,11 @@ export default function RegisterVenue() {
     contactPhone: "",
     contactEmail: "",
     images: [] as File[],
+    plan: "basico",
+    cardName: "",
+    cardNumber: "",
+    cardExpiry: "",
+    cardCVC: "",
   });
 
   const [step, setStep] = useState(1);
@@ -169,13 +174,7 @@ export default function RegisterVenue() {
             Volver al inicio
           </Button>
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground font-display">Eventia</h1>
-              <p className="text-xs text-muted-foreground font-body">Registra tu salón</p>
-            </div>
+            <img src="/LOGONEGRO.png" alt="Eventia logo" className="h-10 w-auto" />
           </div>
           <div className="w-24"></div>
         </div>
@@ -409,7 +408,7 @@ export default function RegisterVenue() {
           {step === 4 && (
             <Card>
               <CardHeader>
-                <CardTitle className="font-display">Información de contacto</CardTitle>
+                <CardTitle className="font-display">Información de contacto y pago</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -441,6 +440,84 @@ export default function RegisterVenue() {
                       value={formData.contactEmail}
                       onChange={(e) => handleInputChange("contactEmail", e.target.value)}
                       placeholder="tu@email.com"
+                      className="font-body"
+                    />
+                  </div>
+                </div>
+                <Separator />
+                <div>
+                  <Label className="font-body mb-2 block">Selecciona tu plan</Label>
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <label className="flex items-center border rounded-lg p-4 cursor-pointer w-full md:w-1/2">
+                      <input
+                        type="radio"
+                        name="plan"
+                        value="basico"
+                        checked={formData.plan === 'basico'}
+                        onChange={() => handleInputChange('plan', 'basico')}
+                        className="mr-3 accent-primary"
+                      />
+                      <div>
+                        <span className="font-bold text-lg">Básico</span>
+                        <div className="text-muted-foreground">$599 / mes</div>
+                      </div>
+                    </label>
+                    <label className="flex items-center border rounded-lg p-4 cursor-pointer w-full md:w-1/2">
+                      <input
+                        type="radio"
+                        name="plan"
+                        value="premium"
+                        checked={formData.plan === 'premium'}
+                        onChange={() => handleInputChange('plan', 'premium')}
+                        className="mr-3 accent-primary"
+                      />
+                      <div>
+                        <span className="font-bold text-lg">Premium</span>
+                        <div className="text-muted-foreground">$1,999 / mes</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="cardName" className="font-body">Nombre en la tarjeta</Label>
+                    <Input
+                      id="cardName"
+                      value={formData.cardName || ''}
+                      onChange={(e) => handleInputChange("cardName", e.target.value)}
+                      placeholder="Como aparece en la tarjeta"
+                      className="font-body"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="cardNumber" className="font-body">Número de tarjeta</Label>
+                    <Input
+                      id="cardNumber"
+                      value={formData.cardNumber || ''}
+                      onChange={(e) => handleInputChange("cardNumber", e.target.value)}
+                      placeholder="0000 0000 0000 0000"
+                      className="font-body"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div>
+                    <Label htmlFor="cardExpiry" className="font-body">Vencimiento</Label>
+                    <Input
+                      id="cardExpiry"
+                      value={formData.cardExpiry || ''}
+                      onChange={(e) => handleInputChange("cardExpiry", e.target.value)}
+                      placeholder="MM/AA"
+                      className="font-body"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="cardCVC" className="font-body">CVC</Label>
+                    <Input
+                      id="cardCVC"
+                      value={formData.cardCVC || ''}
+                      onChange={(e) => handleInputChange("cardCVC", e.target.value)}
+                      placeholder="123"
                       className="font-body"
                     />
                   </div>

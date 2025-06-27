@@ -132,7 +132,7 @@ export default function Index() {
       <section
         className="relative py-20 px-4 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(87, 13, 248, 0.3)), url('https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(87, 13, 248, 0.3)), url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
         }}
       >
         <div className="container mx-auto text-center">

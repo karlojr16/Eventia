@@ -58,10 +58,9 @@ const venueData = {
       "Aire acondicionado",
     ],
     images: [
-      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "/EventIA/Evento Bodas--/Salon 2/BODAS.jpg",
+      "/EventIA/Evento Bodas--/Salon 2/BODAS2.jpg",
+      "/EventIA/Evento Bodas--/Salon 2/BODAS3.jpg",
     ],
     reviews: [
       {

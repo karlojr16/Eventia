@@ -129,13 +129,18 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4">
+      <section
+        className="relative py-20 px-4 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(87, 13, 248, 0.3)), url('https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80')`,
+        }}
+      >
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Encuentra el salón perfecto
-            <span className="text-primary block">para tu evento especial</span>
+            <span className="text-accent block">para tu evento especial</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
             Descubre espacios únicos para bodas, cumpleaños, eventos
             corporativos y más. Miles de opciones esperándote en toda México.
           </p>

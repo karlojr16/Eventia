@@ -125,12 +125,12 @@ export default function Index() {
             >
               Explorar
             </a>
-            <a
-              href="#"
+            <button
+              onClick={() => navigate("/registrar-salon")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Anunciar
-            </a>
+              Registra tu salón
+            </button>
             <a
               href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"

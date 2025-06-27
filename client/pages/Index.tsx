@@ -103,7 +103,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-background to-amber-50 font-body">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-gray-300 font-body">
       {/* Header */}
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -138,7 +138,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-orange-400 via-red-400 to-pink-500">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-display">
             Encuentra el salón perfecto

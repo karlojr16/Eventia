@@ -96,6 +96,317 @@ const venueData = {
       },
     ],
   },
+  2: {
+    id: 2,
+    name: "Centro de Eventos Aurora",
+    location: "Guadalajara",
+    rating: 4.8,
+    reviews: 89,
+    price: 12000,
+    type: "Corporativo",
+    capacity: 150,
+    description:
+      "Moderno centro de eventos corporativos en Guadalajara, equipado con la última tecnología para conferencias, presentaciones y eventos empresariales. Espacios versátiles y servicios profesionales.",
+    amenities: [
+      "Wi-Fi gratuito",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Equipo audiovisual",
+      "Servicio de coffee break",
+      "Aire acondicionado",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Carlos Méndez",
+        rating: 5,
+        comment:
+          "Excelente para eventos corporativos. La tecnología y el servicio son de primera.",
+        date: "Hace 1 semana",
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+      {
+        id: 2,
+        name: "Ana López",
+        rating: 5,
+        comment:
+          "Perfecto para nuestra conferencia anual. Todo salió excelente.",
+        date: "Hace 3 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  3: {
+    id: 3,
+    name: "Terraza Jardín Real",
+    location: "Monterrey",
+    rating: 4.7,
+    reviews: 156,
+    price: 18000,
+    type: "Cumpleaños",
+    capacity: 100,
+    description:
+      "Hermosa terraza al aire libre en Monterrey, ideal para celebraciones íntimas como cumpleaños y reuniones familiares. Con jardines naturales y ambiente acogedor.",
+    amenities: [
+      "Área al aire libre",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Servicio de catering",
+      "Jardines naturales",
+      "Iluminación especial",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Patricia Ruiz",
+        rating: 5,
+        comment:
+          "La terraza es preciosa, perfecto para el cumpleaños de mi hijo.",
+        date: "Hace 2 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  4: {
+    id: 4,
+    name: "Salón Vista Hermosa",
+    location: "Puebla",
+    rating: 4.9,
+    reviews: 203,
+    price: 10000,
+    type: "Quinceañeras",
+    capacity: 180,
+    description:
+      "Elegante salón especializado en quinceañeras en Puebla. Decoración clásica y sofisticada, perfecta para hacer realidad el sueño de toda quinceañera.",
+    amenities: [
+      "Wi-Fi gratuito",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Pista de baile",
+      "Decoración incluida",
+      "Área VIP",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Ana Martínez",
+        rating: 5,
+        comment: "Mi quinceañera fue perfecta aquí. Muy recomendado.",
+        date: "Hace 1 mes",
+        avatar:
+          "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  5: {
+    id: 5,
+    name: "Salón Premium Palace",
+    location: "Ciudad de México",
+    rating: 4.8,
+    reviews: 95,
+    price: 22000,
+    type: "Bodas",
+    capacity: 300,
+    description:
+      "El salón más exclusivo de Ciudad de México para bodas de gran elegancia. Instalaciones de lujo y servicio personalizado para el día más importante.",
+    amenities: [
+      "Wi-Fi gratuito",
+      "Valet parking",
+      "Sistema de sonido premium",
+      "Servicio de catering gourmet",
+      "Decoración de lujo",
+      "Suite nupcial",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Isabella Torres",
+        rating: 5,
+        comment: "Boda de ensueño en un lugar increíble. Vale cada peso.",
+        date: "Hace 3 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  6: {
+    id: 6,
+    name: "Centro de Conferencias Moderno",
+    location: "Guadalajara",
+    rating: 4.6,
+    reviews: 78,
+    price: 8000,
+    type: "Corporativo",
+    capacity: 120,
+    description:
+      "Centro especializado en conferencias y eventos profesionales en Guadalajara. Tecnología de punta y espacios diseñados para la productividad.",
+    amenities: [
+      "Wi-Fi de alta velocidad",
+      "Estacionamiento",
+      "Equipo audiovisual 4K",
+      "Sistema de traducción",
+      "Coffee station",
+      "Salas de break-out",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Roberto Silva",
+        rating: 5,
+        comment:
+          "Excelente para conferencias internacionales. Todo muy profesional.",
+        date: "Hace 2 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  7: {
+    id: 7,
+    name: "Quinta Los Rosales",
+    location: "Monterrey",
+    rating: 4.9,
+    reviews: 142,
+    price: 16000,
+    type: "Quinceañeras",
+    capacity: 250,
+    description:
+      "Hermosa quinta en Monterrey con arquitectura colonial, perfecta para quinceañeras tradicionales. Amplios jardines y salones elegantes.",
+    amenities: [
+      "Jardines amplios",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Capilla privada",
+      "Decoración incluida",
+      "Área de fotos",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Carmen Delgado",
+        rating: 5,
+        comment:
+          "La quinta es bellísima, mi hija quedó encantada con su quinceañera.",
+        date: "Hace 1 mes",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  8: {
+    id: 8,
+    name: "Salón de Graduaciones UNI",
+    location: "Puebla",
+    rating: 4.5,
+    reviews: 67,
+    price: 9000,
+    type: "Graduaciones",
+    capacity: 180,
+    description:
+      "Salón académico en Puebla, diseñado especialmente para ceremonias de graduación. Ambiente formal y solemne para celebrar logros académicos.",
+    amenities: [
+      "Wi-Fi gratuito",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Podio incluido",
+      "Área de fotografía",
+      "Proyectores",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Dr. Luis Herrera",
+        rating: 5,
+        comment:
+          "Perfecto para ceremonias de graduación. Muy formal y elegante.",
+        date: "Hace 3 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
+  9: {
+    id: 9,
+    name: "Terraza Celebración",
+    location: "Cancún",
+    rating: 4.7,
+    reviews: 118,
+    price: 14000,
+    type: "Cumpleaños",
+    capacity: 150,
+    description:
+      "Terraza tropical en Cancún con vista al mar, perfecta para cumpleaños y celebraciones especiales. Ambiente relajado y vistas espectaculares.",
+    amenities: [
+      "Vista al mar",
+      "Estacionamiento",
+      "Sistema de sonido",
+      "Bar incluido",
+      "Área de playa",
+      "Iluminación nocturna",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: "Sofia Jiménez",
+        rating: 5,
+        comment: "Cumpleaños increíble con vista al mar. Muy recomendado.",
+        date: "Hace 2 semanas",
+        avatar:
+          "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      },
+    ],
+  },
 };
 
 export default function VenueDetails() {

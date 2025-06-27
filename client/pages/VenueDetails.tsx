@@ -202,10 +202,9 @@ const venueData = {
       "Decoración incluida",
     ],
     images: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1492648272180-61e45a8d98a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519167758481-83f29c8eb7c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "/EventIA/Evento XV--/Salon 1/SALONXV.jpg",
+      "/EventIA/Evento XV--/Salon 1/SALONXV2.jpg",
+      "/EventIA/Evento XV--/Salon 1/SALONXV3.jpg",
     ],
     reviews: [
       {
@@ -229,7 +228,7 @@ export default function VenueDetails() {
   const [eventType, setEventType] = useState("");
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const venue = venueData[id as keyof typeof venueData];
+  const venue = venueData[Number(id) as unknown as keyof typeof venueData];
 
   if (!venue) {
     return (
@@ -321,14 +320,14 @@ export default function VenueDetails() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="md:col-span-2">
             <img
-              src={venue.images[0]}
+              src={venue.images && venue.images.length > 0 ? venue.images[0] : '/SALON1.jpeg'}
               alt={venue.name}
               className="w-full h-64 md:h-96 object-cover rounded-lg"
             />
           </div>
-          {venue.images.slice(1, 4).map((image, index) => (
+          {venue.images && venue.images.length > 1 && venue.images.slice(1, 4).map((image, index) => (
             <img
-              key={index}
+              key={String(index)}
               src={image}
               alt={`${venue.name} ${index + 2}`}
               className="w-full h-32 object-cover rounded-lg"
@@ -366,11 +365,13 @@ export default function VenueDetails() {
                   {venue.reviews.map((review) => (
                     <div key={review.id} className="border-b border-border pb-6 last:border-b-0">
                       <div className="flex items-start space-x-4">
-                        <img
-                          src={review.avatar}
-                          alt={review.name}
-                          className="w-12 h-12 rounded-full object-cover"
-                        />
+                        {review.avatar && !review.avatar.includes('photo-1494790108755-2616b612b5c5') && (
+                          <img
+                            src={review.avatar}
+                            alt={review.name}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        )}
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
                             <h4 className="font-semibold text-foreground font-display">
